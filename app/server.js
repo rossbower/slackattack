@@ -75,7 +75,7 @@ controller.hears(['hungry', 'starving', 'eat', 'food'], 'direct_message,direct_m
             convo.next();
             convo.ask('What type of food are you interested in?', (food, convo) => {
               convo.ask('Yum! Where are you?', (location, convo) => {
-                convo.say('Cool! Finding a place for you to eat...');
+                bot.reply(message, 'Cool! Finding a place for you to eat...');
                 convo.next();
                 // Adapted from https://github.com/olalonde/node-yelp
                 yelp.search({ term: food.text, location: location.text })
