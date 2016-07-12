@@ -50,7 +50,7 @@ controller.hears(['hello', 'hi', 'howdy', 'hey'], ['direct_message', 'direct_men
 // });
 
 controller.on('outgoing_webhook', (bot, message) => {
-  bot.replyPublic(message, 'alright, alright I\'m up!');
+  bot.replyPublic(message, 'alright, alright I\'m up!http://gph.is/1aRGKdk');
 });
 
 
