@@ -106,9 +106,6 @@ controller.hears(['hungry', 'starving', 'eat', 'food'], 'direct_message,direct_m
           pattern: bot.utterances.no,
           callback: (response, convo) => {
             bot.reply(message, 'Okay, nevermind then.');
-            // setTimeout(() => {
-            //   process.exit();
-            // }, 3000);
             convo.stop();
           },
         },
@@ -149,10 +146,6 @@ controller.hears(['bored', 'lonely'], 'direct_message,direct_mention,mention', (
           pattern: bot.utterances.no,
           callback: (response, convo) => {
             bot.reply(message, 'Alright, well I\'m around if you decide you want to!');
-            // convo.next();
-            // setTimeout(() => {
-            //   process.exit();
-            // }, 3000);
             convo.stop();
           },
         },
