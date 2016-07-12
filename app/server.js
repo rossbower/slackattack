@@ -45,6 +45,10 @@ controller.hears(['hello', 'hi', 'howdy', 'hey'], ['direct_message', 'direct_men
   });
 });
 
+controller.hears(['silly', 'funny'], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
+  bot.reply(message, 'No, you\'re a silly goose!');
+});
+
 // controller.on('user_typing', (bot, message) => {
 //   bot.reply(message, 'stop typing!');
 // });
