@@ -107,6 +107,7 @@ controller.hears(['hungry', 'starving', 'eat', 'food'], 'direct_message,direct_m
         {
           default: true,
           callback(response, convo) {
+            convo.sat('Sorry, I\'m not sure I got that');
             convo.repeat();
             convo.next();
           },
