@@ -104,6 +104,13 @@ controller.hears(['hungry', 'starving', 'eat', 'food'], 'direct_message,direct_m
             convo.stop();
           },
         },
+        {
+          default: true,
+          callback(response, convo) {
+            convo.repeat();
+            convo.next();
+          },
+        },
       ]);
     }
   });
