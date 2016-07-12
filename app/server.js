@@ -105,7 +105,7 @@ controller.hears(['hungry', 'starving', 'eat', 'food'], 'direct_message,direct_m
         {
           pattern: bot.utterances.no,
           callback: (response, convo) => {
-            convo.say('Okay, nevermind then.');
+            bot.reply(message, 'Okay, nevermind then.');
             // setTimeout(() => {
             //   process.exit();
             // }, 3000);
