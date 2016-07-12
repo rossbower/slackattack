@@ -148,7 +148,7 @@ controller.hears(['bored', 'lonely'], 'direct_message,direct_mention,mention', (
         {
           pattern: bot.utterances.no,
           callback: (response, convo) => {
-            bot.reply('Alright, well I\'m around if you decide you want to!');
+            bot.reply(message, 'Alright, well I\'m around if you decide you want to!');
             // convo.next();
             // setTimeout(() => {
             //   process.exit();
