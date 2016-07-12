@@ -120,3 +120,46 @@ controller.hears(['hungry', 'starving', 'eat', 'food'], 'direct_message,direct_m
     }
   });
 });
+
+
+controller.hears(['bored', 'lonely'], 'direct_message,direct_mention,mention', (bot, message) => {
+  bot.startConversation(message, (err, convo) => {
+    if (!err) {
+      convo.ask('Do you want to chat a bit?', [
+        {
+          pattern: bot.utterances.yes,
+          callback: (response, convo) => {
+            convo.say('Okay, I\'d love that!');
+            convo.next();
+            convo.ask('What did you do today?', (today, convo) => {
+              convo.ask('That sounds fun! Do you have plans for the weekend?', (weekend, convo) => {
+                convo.say('Have a great time! You\'ll have to tell me how that goes!');
+                convo.next();
+              });
+              convo.next();
+            });
+            convo.next();
+          },
+        },
+        {
+          pattern: bot.utterances.no,
+          callback: (response, convo) => {
+            convo.say('Alright, well I\'m around if you decide you want to!');
+            // setTimeout(() => {
+            //   process.exit();
+            // }, 3000);
+            convo.stop();
+          },
+        },
+        {
+          default: true,
+          callback(response, convo) {
+            convo.say('Is that a yes?');
+            convo.repeat();
+            convo.next();
+          },
+        },
+      ]);
+    }
+  });
+});
