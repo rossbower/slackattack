@@ -49,6 +49,10 @@ controller.hears(['hello', 'hi', 'howdy', 'hey'], ['direct_message', 'direct_men
 //   bot.reply(message, 'stop typing!');
 // });
 
+controller.on('outgoing_webhook', (bot, message) => {
+  bot.replyPublic(message, 'alright, alright I\'m up!');
+});
+
 
 // Used https://github.com/howdyai/botkit/blob/master/slack_bot.js as a template
 // to implement a bot using botkit
